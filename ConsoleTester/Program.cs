@@ -16,6 +16,7 @@ namespace ConsoleTester
             config.Transport.EndpointHostname = "127.0.0.1";
             config.Transport.EndpointPort = 514;
             config.Transport.LogTransport = LogTransport.SyslogTcp;
+            //config.EnableAppendPriority = true;
             var syslog = new LogglyClient();
 
             var logEvent = new LogglyEvent();

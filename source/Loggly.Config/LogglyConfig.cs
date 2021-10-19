@@ -49,6 +49,8 @@ namespace Loggly.Config
             set { _instance = value; }
         }
 
+        public bool EnableAppendPriority { get; set; }
+
         private static ILogglyConfig GetNullConfig()
         {
             return new LogglyConfig();

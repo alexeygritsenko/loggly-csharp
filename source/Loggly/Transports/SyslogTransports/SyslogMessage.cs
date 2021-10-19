@@ -1,3 +1,4 @@
+using Loggly.Config;
 using System;
 using System.Text;
 
@@ -87,11 +88,19 @@ namespace Loggly.Transports.Syslog
         internal string GetMessageAsString()
         {
             int priority = (((int)Facility) * 8) + ((int)Level);
+            string msg = "";
 
-            var msg = String.Format(
-                "<{0}>1 {1}\n"
-                , priority
-                , Text);
+            if (LogglyConfig.Instance.EnableAppendPriority)
+            {
+                msg = String.Format(
+                  "<{0}>1 {1}\n"
+                  , priority
+                  , Text);
+            }
+            else
+            {
+                msg = Text;
+            }
 
             //var msg = String.Format(
             //    "<{0}>1 {1} {2} {3} {4} {5} {6}\n"
@@ -104,7 +113,7 @@ namespace Loggly.Transports.Syslog
             //    , Text);
 
             //return msg;
-            return Text;
+            return msg;
         }
 
         public byte[] GetBytes()

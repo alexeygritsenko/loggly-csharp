@@ -37,7 +37,9 @@ namespace Loggly.Config
         bool IsEnabled { get; set; }
 
         bool IsValid { get;  }
-        
+
+        bool EnableAppendPriority { get; set; }
+
         ITagConfiguration TagConfig { get;  }
         
         ISearchConfiguration Search { get; }

@@ -39,12 +39,12 @@ namespace Loggly.Transports.Syslog
             var tags = GetRenderedTags(message.CustomTags);
             var tagSpacer = string.IsNullOrEmpty(tags) ? string.Empty : " ";
 
-            syslogMessage.Text = string.Format(
-                                    "[{0}@41058{1}{2}] {3}"
-                                    , LogglyConfig.Instance.CustomerToken
-                                    , tagSpacer
-                                    , tags
-                                    , message.Content);
+            //syslogMessage.Text = string.Format(
+            //                        "[{0}@41058{1}{2}] {3}"
+            //                        , LogglyConfig.Instance.CustomerToken
+            //                        , tagSpacer
+            //                        , tags
+            //                        , message.Content);
 
             return syslogMessage;
         }

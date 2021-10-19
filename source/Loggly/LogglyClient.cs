@@ -72,9 +72,14 @@ namespace Loggly
             return new LogglyMessage(logglyEvent.Options.Tags, logglyEvent.Syslog)
             {
                 Timestamp = logglyEvent.Timestamp,
-                Type = MessageType.Json,
-                Content = ToJson(logglyEvent.Data),
+                Type = MessageType.Plain,
+                Content = ToText(logglyEvent.Data),
             };
+        }
+
+        private string ToText(IMessageData messageData)
+        {
+            return (messageData as Dictionary<string, object>).Values.First().ToString();
         }
 
         private string ToJson(object value)

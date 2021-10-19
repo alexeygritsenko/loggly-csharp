@@ -86,19 +86,25 @@ namespace Loggly.Transports.Syslog
 
         internal string GetMessageAsString()
         {
-            int priority = (((int) Facility)*8) + ((int) Level);
+            int priority = (((int)Facility) * 8) + ((int)Level);
 
             var msg = String.Format(
-                "<{0}>1 {1} {2} {3} {4} {5} {6}\n"
+                "<{0}>1 {1}\n"
                 , priority
-                , Timestamp.ToSyslog()
-                , EnvironmentProvider.MachineName
-                , AppName
-                , EnvironmentProvider.ProcessId
-                , MessageId
                 , Text);
 
-            return msg;
+            //var msg = String.Format(
+            //    "<{0}>1 {1} {2} {3} {4} {5} {6}\n"
+            //    , priority
+            //    , Timestamp.ToSyslog()
+            //    , EnvironmentProvider.MachineName
+            //    , AppName
+            //    , EnvironmentProvider.ProcessId
+            //    , MessageId
+            //    , Text);
+
+            //return msg;
+            return Text;
         }
 
         public byte[] GetBytes()

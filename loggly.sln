@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31808.319
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{5B1BDA21-CAE4-4686-B45B-1087AA9A36F4}"
 	ProjectSection(SolutionItems) = preProject
@@ -13,13 +13,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		readme.md = readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggly.Config", "source\loggly.Config\Loggly.Config.csproj", "{58A100CE-CC7E-43BF-A054-D28648F092AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggly.Config", "source\loggly.Config\Loggly.Config.csproj", "{58A100CE-CC7E-43BF-A054-D28648F092AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggly.Tests", "source\Loggly.Tests\Loggly.Tests.csproj", "{EDACB38E-0484-4212-8F70-16D5EC63CB49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggly.Tests", "source\Loggly.Tests\Loggly.Tests.csproj", "{EDACB38E-0484-4212-8F70-16D5EC63CB49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggly.Example", "source\Loggly.Example\Loggly.Example.csproj", "{38D8CC5E-6E59-437C-B33E-430AE1E4E760}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Loggly", "source\Loggly\Loggly.csproj", "{F66349BA-29A6-4336-BA81-993170FC9963}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Loggly", "source\Loggly\Loggly.csproj", "{F66349BA-29A6-4336-BA81-993170FC9963}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTester", "ConsoleTester\ConsoleTester.csproj", "{270D8A11-12CA-4DCE-A40F-DDC4F80C9828}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +44,10 @@ Global
 		{F66349BA-29A6-4336-BA81-993170FC9963}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F66349BA-29A6-4336-BA81-993170FC9963}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F66349BA-29A6-4336-BA81-993170FC9963}.Release|Any CPU.Build.0 = Release|Any CPU
+		{270D8A11-12CA-4DCE-A40F-DDC4F80C9828}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{270D8A11-12CA-4DCE-A40F-DDC4F80C9828}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{270D8A11-12CA-4DCE-A40F-DDC4F80C9828}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{270D8A11-12CA-4DCE-A40F-DDC4F80C9828}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

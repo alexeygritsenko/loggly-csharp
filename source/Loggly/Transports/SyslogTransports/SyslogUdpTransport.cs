@@ -12,10 +12,8 @@ namespace Loggly.Transports.Syslog
         private readonly UdpClientEx _udpClient;
         public SyslogUdpTransport()
         {
-            var ipHostInfo = Dns.GetHostEntryAsync(Dns.GetHostName()).Result;
-            var ipAddress = ipHostInfo.AddressList.First(ip => ip.AddressFamily == AddressFamily.InterNetwork);
-            var ipLocalEndPoint = new IPEndPoint(ipAddress, 0);
-            _udpClient = new UdpClientEx(ipLocalEndPoint);
+            IPEndPoint localEP = new IPEndPoint(IPAddress.Any, 0);
+            _udpClient = new UdpClientEx(localEP);
         }
 
         public bool IsActive
@@ -40,13 +38,14 @@ namespace Loggly.Transports.Syslog
         {
             try
             {
-                var hostEntry = await Dns.GetHostEntryAsync(LogglyConfig.Instance.Transport.EndpointHostname).ConfigureAwait(false);
-                var logglyEndpointIp = hostEntry.AddressList[0];
+                var targetIp = IPAddress.Parse(LogglyConfig.Instance.Transport.EndpointHostname);
+                var targetEndPoint = new IPEndPoint(targetIp, LogglyConfig.Instance.Transport.EndpointPort);
+
                 var bytes = syslogMessage.GetBytes();
                 await _udpClient.SendAsync(
                     bytes,
                     bytes.Length,
-                    new IPEndPoint(logglyEndpointIp, LogglyConfig.Instance.Transport.EndpointPort)).ConfigureAwait(false);
+                    targetEndPoint).ConfigureAwait(false);
                 return new LogResponse() { Code = ResponseCode.Success };
             }
             catch (Exception ex)
